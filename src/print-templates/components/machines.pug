@@ -26,12 +26,13 @@ mixin machines(order, machines, title='Machines')
           br
           em (Serial: #{machine.serial})
 
-        .rating
-          span= `${condition.value > 0 ? '★' : '☆'}`
-          span= `${condition.value >= 1 ? '★' : '☆'}`
-          span= `${condition.value >= 2 ? '★' : '☆'}`
-          span= `${condition.value >= 3 ? '★' : '☆'}`
-          span= `${condition.value >= 4 ? '★' : '☆'}`
+        if condition.value
+          .rating
+            span= `${condition.value > 0 ? '★' : '☆'}`
+            span= `${condition.value >= 1 ? '★' : '☆'}`
+            span= `${condition.value >= 2 ? '★' : '☆'}`
+            span= `${condition.value >= 3 ? '★' : '☆'}`
+            span= `${condition.value >= 4 ? '★' : '☆'}`
 
         small: em.text-muted= conditionNames[condition.value || 2]
       else
